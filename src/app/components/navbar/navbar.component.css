@@ -1,0 +1,21 @@
+.navbar {
+    background-color: green;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons ul {
+    list-style: none;
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 10px;
+    justify-content: flex-end; /* Change this to 'flex-end' */
+}
+
+.buttons ul li a {
+    color: white;
+    text-decoration: none;
+}
