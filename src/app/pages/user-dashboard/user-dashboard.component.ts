@@ -13,4 +13,15 @@ export class UserDashboardComponent {
   user = this.userService.user
 
   constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    console.log("user-dashboard ngONInit")
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const userData = localStorage.getItem("user")
+    if(userData) {
+      const parsedUser = JSON.parse(userData)
+      this.userService.user.set(parsedUser)
+    }
+    }
+  }
 }

@@ -2,12 +2,21 @@ import { Component, signal, Signal } from '@angular/core';
 import { User } from '../../interfaces/user';
 import { FormsModule, NgForm } from '@angular/forms';
 import { UserService } from '../../services/user.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [
+    FormsModule, 
+    RouterLink,
+    NgIf,
+    ButtonModule,
+    InputTextModule
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

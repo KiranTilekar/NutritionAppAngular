@@ -5,18 +5,46 @@
             <div class="form">
                 <div>
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="loginName" [(ngModel)]="user.loginName" required>
+                    <input  pInputText
+                            id="username" 
+                            name="loginName" 
+                            [(ngModel)]="user.loginName" 
+                            #loginName="ngModel"
+                            required>
+
+                    <span class="text-danger" *ngIf="(loginName.touched || userForm.submitted)">
+                        <p *ngIf="loginName.errors?.['required']">Username is required</p>
+                    </span>
                 </div>
             
                 <div>
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
+                    <input  pInputText
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            [(ngModel)]="user.password" 
+                            #password="ngModel"
+                            required>
+                    <span class="text-danger" *ngIf="(password.touched || userForm.submitted)">
+                        <p *ngIf="password.errors?.['required']">Password is required</p>
+                    </span>
                 </div>
             
-            </div>
+            </div><br>
     
-            <div class="button">
-                <button type="submit">Submit</button>
+            <p-button 
+                type="submit" 
+                styleClass="p-button-success" 
+                [raised]="true" 
+                [rounded]="true"
+                icon="pi pi-user"
+                label="Login"
+            >
+            </p-button>
+
+            <div class="register-link">
+                <a routerLink="/register" routerLinkActive="Active">Don't have account? Register</a>
             </div>
         </form>
     

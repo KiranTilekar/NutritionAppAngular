@@ -1,1 +1,124 @@
-<p>register works!</p>
+<div class="register">
+    <h1>Register</h1>
+
+    <form #registrationForm="ngForm" (ngSubmit)="submitForm(registrationForm)" class="registrationForm">
+        <div class="form">
+
+            <div>
+                <label for="name">Name</label>
+                <input type="text" 
+                       id="name" 
+                       name="name" 
+                       [(ngModel)]="user.name" 
+                       #name="ngModel"
+                       pattern="^[a-zA-Z\s]{2,20}"
+                       required>
+                <span class="text-danger" *ngIf="(name.touched || name.dirty || registrationForm.submitted)">
+                    <p *ngIf="name.errors?.['required']">Name is required</p>
+                    <p *ngIf="name.errors?.['pattern']"> Name only contains uppercase lowercase and spaces and minimum 2 characters</p>
+                </span>
+            </div>
+
+            <div>
+                <label for="username">Username</label>
+                <input type="text" 
+                        id="username" 
+                        name="username" 
+                        [(ngModel)]="user.loginName" 
+                        #loginName="ngModel"
+                        pattern="^[a-zA-Z\s]{2,20}"
+                        required>
+                <span class="text-danger" *ngIf="(loginName.touched || loginName.dirty || registrationForm.submitted)">
+                    <p *ngIf="loginName.errors?.['required']">Username is required</p>
+                    <p *ngIf="loginName.errors?.['pattern']"> Username only contains uppercase lowercase and spaces and minimum 2 characters</p>
+                </span>
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <input type="email" 
+                        id="email" 
+                        name="email" 
+                        [(ngModel)]="user.email" 
+                        #email="ngModel"
+                        pattern="^[a-zA-Z0-9._]+@yash\.com$"
+                        required>
+                <span class="text-danger" *ngIf="(email.touched || email.dirty || registrationForm.submitted)">
+                    <p *ngIf="email.errors?.['required']">Email is required</p>
+                    <p *ngIf="email.errors?.['pattern']">Please enter email in format "example&#64;yash.com"</p>
+                </span>
+            </div>
+
+            <div>
+                <label for="height">Height (in m)</label>
+                <input type="number" 
+                        id="height" 
+                        name="height" 
+                        [(ngModel)]="user.height" 
+                        #height="ngModel"
+                        step="0.01" min="0.1" 
+                        required>
+                <span class="text-danger" *ngIf="(height.touched || height.dirty || registrationForm.submitted)">
+                    <p *ngIf="height.errors?.['required']">Height is required</p>
+                    <p *ngIf="height.errors?.['min']">Height can not be zero</p>
+                </span>
+            </div>
+
+            <div>
+                <label for="weight">Weight (in kg)</label>
+                <input type="number" 
+                        id="weight" 
+                        name="weight" 
+                        [(ngModel)]="user.weight" 
+                        #weight="ngModel"
+                        step="0.01" min="0.1" 
+                        required>
+                <span class="text-danger" *ngIf="(weight.touched || weight.dirty || registrationForm.submitted)">
+                    <p *ngIf="weight.errors?.['required']">Weight is required</p>
+                    <p *ngIf="weight.errors?.['min']">Weight can not be zero</p>
+                </span>
+            </div>
+        
+            <div>
+                <label for="Preference">Select Preference</label>
+                <select name="preference" 
+                        id="preference" 
+                        [(ngModel)]="user.preference"
+                        #preference="ngModel"
+                        required>
+                <span class="text-danger" *ngIf="(preference.touched || preference.dirty || registrationForm.submitted)">
+                    <p *ngIf="preference.errors?.['required']">Preference is required</p>
+                </span>
+                    <option value="">Select Meal Preference</option>
+                    <option value="Veg">Vegetarian</option>
+                    <option value="NonVeg">Non-Vegetarian</option>
+                    <option value="Vegan">Vegan</option>
+                    <option value="Jain">Jain</option>
+                    <option value="All">All</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="password">Password</label>
+                <input type="password" 
+                        id="password" 
+                        name="password" 
+                        [(ngModel)]="user.password" 
+                        #password="ngModel"
+                        pattern1="^(?=.*[a-z])(?=.*[A-Z])"
+                        required>
+                <span class="text-danger" *ngIf="(password.touched || password.dirty || registrationForm.submitted)">
+                    <p *ngIf="password.errors?.['required']">Password is required</p>
+                    <p *ngIf="password.errors?.['pattern1']">Password should contain at least one uppercase andone lowercase</p>
+                </span>
+            </div>
+
+        </div>
+
+        <div class="button">
+            <button type="submit">Submit</button>
+        </div>
+        <a routerLink="/login" routerLinkActive="Active">Already have account? Login</a>
+    </form>
+
+</div>

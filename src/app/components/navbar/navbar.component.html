@@ -1,18 +1,32 @@
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"> -->
-
 <div class="navbar">
     <div style="display: flex; align-items: center; justify-content: space-between">
         <i class="fas fa-apple-alt"></i>
         <h1>Nutrition App</h1>
     </div>
 
-    <div class="buttons">
-        <ul>
-            <li><a routerLink="/" routerLinkActive="Active">Home</a></li>
-            <li><a routerLink="/login" routerLinkActive="Active">Login</a></li>
-            <li><a routerLink="/register" routerLinkActive="Active">Register</a></li>
-            <li>welcome, {{user().loginName}}</li>
-        </ul>
-        
-    </div>
+    <!-- User not logged-In -->
+
+    @if(user().name === ""){
+        <div class="buttons">
+            <ul>
+                <li><a routerLink="/" routerLinkActive="Active">Home</a></li>
+                <li><a routerLink="/login" routerLinkActive="Active">Login</a></li>
+                <li><a routerLink="/register" routerLinkActive="Active">Register</a></li>
+                <li>{{user().name}}</li>
+            </ul> 
+        </div>
+    }
+
+    <!-- User logged-In -->
+
+    @if(user().name !== ''){
+        <div class="buttons">
+            <ul>
+                <li><a routerLink="/" routerLinkActive="Active">Home</a></li>
+                <li><a routerLink="/profile" routerLinkActive="Active">Profile</a></li>
+                <li><a (click)="logoutUser()">Logout</a></li>
+                <li>{{user().name}}</li>
+            </ul> 
+        </div>
+    }
 </div>

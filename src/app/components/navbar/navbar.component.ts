@@ -15,4 +15,25 @@ export class NavbarComponent {
 
   constructor(private userService: UserService) {}
 
+  ngOnInit() {
+    console.log("navbar ngONInit")
+    
+
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const userData = localStorage.getItem("user")
+
+      if(userData) {
+        const parsedUser = JSON.parse(userData)
+        console.log("parseduser: ", parsedUser)
+        this.userService.user.set(parsedUser)
+      }
+    }
+    
+  }
+
+  logoutUser() {
+    console.log("logout")
+    this.userService.logoutUser()
+  }
+
 }
