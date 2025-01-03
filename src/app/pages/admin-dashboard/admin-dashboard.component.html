@@ -1,0 +1,82 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<div class="admin-dashboard">
+    <!-- Header Section -->
+    <div class="dashboard-header">
+        <h1>Welcome, {{user().name}}</h1>
+        <p class="last-updated">Last updated: {{currentDate | date:'medium'}}</p>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <i class="fas fa-users"></i>
+            <div class="stat-info">
+                <h3>Total Users</h3>
+                <span class="stat-number">{{totalUsers}}</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-user-plus"></i>
+            <div class="stat-info">
+                <h3>New Users Today</h3>
+                <span class="stat-number">{{newUsers}}</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-apple-alt"></i>
+            <div class="stat-info">
+                <h3>Food Items</h3>
+                <span class="stat-number">{{totalFoodItems}}</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-dumbbell"></i>
+            <div class="stat-info">
+                <h3>Exercises</h3>
+                <span class="stat-number">{{totalExercises}}</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-utensils"></i>
+            <div class="stat-info">
+                <h3>Total Recipes</h3>
+                <span class="stat-number">{{totalRecipes}}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Actions -->
+    <div class="actions-container">
+        <h2>Management Actions</h2>
+        <div class="admin-actions-grid">
+            <a routerLink="/admin/users" class="action-card">
+                <i class="fas fa-users-cog"></i>
+                <span>Manage Users</span>
+                <p class="action-description">View, edit, and manage user accounts</p>
+            </a>
+
+            <a routerLink="/manageFood" class="action-card">
+                <i class="fas fa-apple-alt"></i>
+                <span>Manage Food Items</span>
+                <p class="action-description">Add, edit, or remove food items from database</p>
+            </a>
+
+            <a routerLink="/admin/exercises" class="action-card">
+                <i class="fas fa-dumbbell"></i>
+                <span>Manage Exercises</span>
+                <p class="action-description">Update exercise database and categories</p>
+            </a>
+
+            <a routerLink="/admin/recipes" class="action-card">
+                <i class="fas fa-utensils"></i>
+                <span>Manage Recipes</span>
+                <p class="action-description">Curate and manage recipe collections</p>
+            </a>
+        </div>
+    </div>
+</div>

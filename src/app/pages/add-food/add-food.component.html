@@ -1,0 +1,203 @@
+<div class="add-food">
+    <h1>Add Food</h1>
+
+    <form #addFoodForm="ngForm" (ngSubmit)="addFood(addFoodForm)" class="addFoodForm" style="position: relative; z-index: 0;">
+        <div>
+            <label for="name">Name</label>
+            <input pInputText 
+                    id="name" 
+                    name="name" 
+                    [(ngModel)]="food.name" 
+                    #name="ngModel"
+                    class="ng-invalid" 
+                    pattern="^[a-zA-Z\s]{2,20}"
+                    required>
+            <span class="text-danger" *ngIf="(name.touched || name.dirty || addFoodForm.submitted)">
+                <p *ngIf="name.errors?.['required']">Name is required</p>
+                <p *ngIf="name.errors?.['pattern']"> Name only contains uppercase lowercase and spaces and minimum 2 characters</p>
+            </span>
+        </div>
+
+        <div>
+            <label for="carbohydrate">Carbohydrate</label>
+            <input pInputText 
+                    type="number"
+                    id="carbohydrate" 
+                    name="carbohydrate" 
+                    [(ngModel)]="food.carbohydrate" 
+                    #carbohydrate="ngModel"
+                    min="0.1"
+                    required>
+            <span class="text-danger" *ngIf="(carbohydrate.touched || carbohydrate.dirty || addFoodForm.submitted)">
+                <p *ngIf="carbohydrate.errors?.['required']">Required</p>
+                <p *ngIf="carbohydrate.errors?.['min']">Can not be zero</p>
+
+            </span>
+        </div>
+
+        <div>
+            <label for="protein">Protein</label>
+            <input pInputText 
+                    type="number"
+                    id="protein" 
+                    name="protein" 
+                    [(ngModel)]="food.protein" 
+                    #protein="ngModel"
+                    min="0.1"
+                    required>
+            <span class="text-danger" *ngIf="(protein.touched || protein.dirty || addFoodForm.submitted)">
+                <p *ngIf="protein.errors?.['required']">Required</p>
+                <p *ngIf="protein.errors?.['min']">Can not be zero</p>
+            </span>
+        </div>
+
+        <div>
+            <label for="fat">Fat</label>
+            <input pInputText 
+                    type="number"
+                    id="fat" 
+                    name="fat" 
+                    [(ngModel)]="food.fat" 
+                    #fat="ngModel"
+                    min="0.1"
+                    required>
+            <span class="text-danger" *ngIf="(fat.touched || fat.dirty || addFoodForm.submitted)">
+                <p *ngIf="fat.errors?.['required']">Required</p>
+                <p *ngIf="fat.errors?.['min']">Can not be zero</p>
+            </span>
+        </div>
+
+        <div>
+            <label for="iron">Iron</label>
+            <input pInputText 
+                    type="number"
+                    id="iron" 
+                    name="iron" 
+                    [(ngModel)]="food.iron" 
+                    #iron="ngModel"
+                    min="0.1"
+                    required>
+            <span class="text-danger" *ngIf="(iron.touched || iron.dirty || addFoodForm.submitted)">
+                <p *ngIf="iron.errors?.['required']">Required</p>
+                <p *ngIf="iron.errors?.['min']">Can not be zero</p>
+            </span>
+        </div>
+
+        <div>
+            <label for="magnesium">Magnesium</label>
+            <input pInputText 
+                    type="number"
+                    id="magnesium" 
+                    name="magnesium" 
+                    [(ngModel)]="food.magnesium" 
+                    #magnesium="ngModel"
+                    min="0.1"
+                    required>
+            <span class="text-danger" *ngIf="(magnesium.touched || magnesium.dirty || addFoodForm.submitted)">
+                <p *ngIf="magnesium.errors?.['required']">Required</p>
+                <p *ngIf="magnesium.errors?.['min']">Can not be zero</p>
+            </span>
+        </div>
+
+        <div>
+            <label for="phosphorous">Phosphorous</label>
+            <input pInputText 
+                    type="number"
+                    id="phosphorous" 
+                    name="phosphorous" 
+                    [(ngModel)]="food.phosphorous" 
+                    #phosphorous="ngModel"
+                    min="0.1"
+                    required>
+            <span class="text-danger" *ngIf="(phosphorous.touched || phosphorous.dirty || addFoodForm.submitted)">
+                <p *ngIf="phosphorous.errors?.['required']">Required</p>
+                <p *ngIf="phosphorous.errors?.['min']">Can not be zero</p>
+
+            </span>
+        </div>
+
+        <div class="field">
+            Measurement
+            <p-dropdown 
+                [(ngModel)]="food.measurement"
+                [options]="measurements"
+                optionLabel="label"
+                name="measurement"
+                inputId="measurement"
+                placeholder="Select Measurement"
+            >
+            </p-dropdown>
+        </div>
+
+        <div>
+            <label for="calories">Calories (kcal)</label>
+            <input pInputText 
+                    type="number"
+                    id="calories" 
+                    name="calories" 
+                    [(ngModel)]="food.calories" 
+                    #calories="ngModel"
+                    min="0.1"
+                    required>
+            <span class="text-danger" *ngIf="(calories.touched || calories.dirty || addFoodForm.submitted)">
+                <p *ngIf="calories.errors?.['required']">Required</p>
+                <p *ngIf="calories.errors?.['min']">Can not be zero</p>
+
+            </span>
+        </div>
+
+        <div class="field">
+            Category
+            <p-dropdown 
+                [(ngModel)]="food.category"
+                [options]="categories"
+                optionLabel="label"
+                name="category"
+                inputId="category"
+                placeholder="Select Category"
+            >
+            </p-dropdown>
+        </div>
+
+        <div>
+            Preference
+            <p-dropdown
+                [(ngModel)]="food.preference"
+                [options]="preferences"
+                optionLabel="label"
+                name="preference"
+                inputId="preference"
+                placeholder="Select Preference"
+                [filter]="true"
+                [filterBy]="'label'"
+                [showClear]="true"
+            >
+            </p-dropdown>
+        </div>
+
+        <div>
+            Add Food Image
+            <p-fileUpload 
+                name="foodImage" 
+                [auto]="true"
+                [customUpload]="true"
+                (uploadHandler)="onUpload($event)"
+                chooseLabel="Choose Image"
+                [showUploadButton]="false"
+                [showCancelButton]="false"
+                accept="image/*">
+            </p-fileUpload>
+        </div>
+
+        <p-button
+                type="submit" 
+                styleClass="p-button-success" 
+                [raised]="true" 
+                [rounded]="true"
+                icon="pi pi-plus"
+                label="Add Food"
+        >
+        </p-button>
+
+    </form>
+</div>

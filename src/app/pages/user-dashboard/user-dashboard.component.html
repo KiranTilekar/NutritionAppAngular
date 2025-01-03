@@ -1,1 +1,66 @@
-<h1>Welcome {{user().name}}</h1>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<div class="dashboard-container">
+    <!-- User Info Section -->
+    <div class="user-info-card">
+        <div class="user-header">
+            <h1>Welcome, {{user().name}}</h1>
+            <p class="last-updated">Last updated: {{currentDate | date}}</p>
+        </div>
+        
+        <div class="health-metrics">
+            <div class="metric-item">
+                <span class="metric-label">Your BMI</span>
+                <span class="metric-value">24.5</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">Category</span>
+                <span class="metric-value">Normal Weight</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">Goal</span>
+                <span class="metric-value">Maintain Weight</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions Grid -->
+    <div class="actions-grid">
+        <a routerLink="/recommendedMeal" routerLinkActive="active" class="action-card">
+            <i class="fas fa-utensils"></i>
+            <span>Get Customized Meal</span>
+            <p class="card-description">Get personalized meal recommendations based on your health goals</p>
+        </a>
+
+        <a routerLink="/makeMeal" routerLinkActive="active" class="action-card">
+            <i class="fas fa-utensils"></i>
+            <span>Make Your Meal</span>
+            <p class="card-description">Create your own balanced meal from our food database</p>
+        </a>
+
+        <a routerLink="/seeMeal" routerLinkActive="active" class="action-card">
+            <i class="fas fa-clipboard-list"></i>
+            <span>See Your Meal</span>
+            <p class="card-description">View and track your meal history and nutrition stats</p>
+        </a>
+
+        <a routerLink="/bmiCalculator" routerLinkActive="active" class="action-card">
+            <i class="fas fa-calculator"></i>
+            <span>BMI Calculator</span>
+            <p class="card-description">Calculate and track your Body Mass Index</p>
+        </a>
+    </div>
+
+    <!-- Quick Add Button -->
+    <div class="quick-add-section">
+        <a routerLink="/makeMeal" routerLinkActive="Active" class="make-meal-button">
+            <p-button
+                [raised]="true"
+                [rounded]="true"
+                icon="pi pi-plus"
+                label="Quick Add Meal"
+                size="large"
+            ></p-button>
+        </a>
+    </div>
+</div>

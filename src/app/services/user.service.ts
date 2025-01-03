@@ -3,8 +3,6 @@ import { Injectable, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 import { Router } from '@angular/router';
-import { response } from 'express';
-import { error } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -77,7 +75,13 @@ export class UserService {
           console.log("user: ", response)        
           this.user.set(response);
           localStorage.setItem("user", JSON.stringify(response))
-          this.router.navigate(["/userDashboard"])
+          
+          if(response.role == 2) {
+            this.router.navigate(["/userDashboard"])
+          }
+          else {
+            this.router.navigate(['/adminDashboard'])
+          }
         }
         else {
           alert("Invalid credentials")

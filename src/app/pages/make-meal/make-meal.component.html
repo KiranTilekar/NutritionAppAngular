@@ -1,0 +1,31 @@
+<div class="page-container">
+    <h1 class="main-title">You can add below food items to your meal</h1>
+
+    <div class="container">
+      <div class="food-grid">
+        <p-card *ngFor="let food of foods" class="food-card">
+          <div *ngIf="food.foodImage" class="image-container">
+            <img [src]="'data:image/jpeg;base64,' + food.foodImage" 
+                 [alt]="food.name"
+                 class="food-image">
+          </div>
+          <div class="food-info">
+            <h3 class="food-title">{{ food.name }}</h3>
+            <p class="food-category">Category: {{ food.category?.value || food.category }}</p>
+            <p class="food-calories">Calories: {{ food.calories }} kcal</p>
+            <p-button 
+              [routerLink]="['/addToMeal', food.foodId]"
+              label="Add to Meal"
+              styleClass="p-button-secondary details-button">
+            </p-button>
+
+            <p-button 
+              [routerLink]="['/foodDetail', food.foodId]"
+              label="View Details"
+              styleClass="p-button-secondary details-button">
+            </p-button>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </div>

@@ -51,8 +51,8 @@ export class RegisterComponent {
     if(form.valid) {
       console.log("registering...")
       this.calculateBMI(this.user.height, this.user.weight)
-      alert('Form Submitted succesfully!!!\n Check the values in browser console.');
-      // this.userService.registerUser(this.user)
+      this.userService.registerUser(this.user)
+      alert('Form Submitted succesfully!!!')
     }
   }
 

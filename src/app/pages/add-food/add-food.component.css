@@ -1,0 +1,92 @@
+.add-food {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-food h1 {
+  color: #2e7d32;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.addFoodForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.addFoodForm > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.addFoodForm label {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.addFoodForm input[type="text"],
+.addFoodForm input[type="number"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+
+.addFoodForm input[type="text"]:focus,
+.addFoodForm input[type="number"]:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.addFoodForm input.ng-invalid.ng-touched {
+  border-color: #f44336;
+}
+
+.text-danger {
+  color: #f44336;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.text-danger p {
+  margin: 0.25rem 0;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+/* PrimeNG specific styles */
+:host ::ng-deep {
+  .p-dropdown {
+      width: 100%;
+  }
+  
+  .p-fileupload {
+      width: 100%;
+      .p-button {
+          background-color: #4CAF50;
+      }
+  }
+  
+  .p-button.p-button-success {
+      width: 100%;
+      margin-top: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .add-food {
+      margin: 1rem;
+      padding: 1rem;
+  }
+}

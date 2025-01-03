@@ -1,0 +1,118 @@
+.page-container {
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-title {
+    text-align: center;
+    color: green;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .food-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+
+  .image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .food-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .food-info {
+    padding: 1rem;
+  }
+
+  .food-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .food-category, .food-calories {
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .details-button {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .food-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .page-container {
+      padding: 1rem;
+    }
+
+    .main-title {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .food-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* PrimeNG Card customization */
+  ::ng-deep .p-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  ::ng-deep .p-button {
+    border-radius: 6px;
+  }
+
+  ::ng-deep .p-card .p-card-content {
+    padding: 0;
+  }
+
+  ::ng-deep .p-button.p-button-secondary:hover {
+    background: #64748b;
+    border-color: #64748b;
+  }

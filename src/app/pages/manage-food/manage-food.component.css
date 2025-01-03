@@ -1,0 +1,4 @@
+::ng-deep .p-button{
+    background-color: green;
+    border: none;
+}

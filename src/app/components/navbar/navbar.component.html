@@ -1,32 +1,36 @@
 <div class="navbar">
-    <div style="display: flex; align-items: center; justify-content: space-between">
-        <i class="fas fa-apple-alt"></i>
+    <div class="brand">
+        <i class="pi pi-apple" style="font-size: 3rem ;color: white"></i>
         <h1>Nutrition App</h1>
-    </div>
-
+    </div> 
+    
     <!-- User not logged-In -->
-
-    @if(user().name === ""){
+    @if(user().name === "") {
         <div class="buttons">
             <ul>
                 <li><a routerLink="/" routerLinkActive="Active">Home</a></li>
                 <li><a routerLink="/login" routerLinkActive="Active">Login</a></li>
                 <li><a routerLink="/register" routerLinkActive="Active">Register</a></li>
-                <li>{{user().name}}</li>
-            </ul> 
+            </ul>
         </div>
     }
-
+    
     <!-- User logged-In -->
-
-    @if(user().name !== ''){
+    @if(user().name !== '') {
         <div class="buttons">
             <ul>
-                <li><a routerLink="/" routerLinkActive="Active">Home</a></li>
+                @if(user().role == 2) {
+                    <li><a routerLink="/userDashboard" routerLinkActive="Active">Dashboard</a></li>
+                }
+
+                @if(user().role == 1) {
+                    <li><a routerLink="/adminDashboard" routerLinkActive="Active">Dashboard</a></li>
+                }
+
                 <li><a routerLink="/profile" routerLinkActive="Active">Profile</a></li>
                 <li><a (click)="logoutUser()">Logout</a></li>
-                <li>{{user().name}}</li>
-            </ul> 
+                <li class="username">Hello, {{user().name}}</li>
+            </ul>
         </div>
     }
 </div>

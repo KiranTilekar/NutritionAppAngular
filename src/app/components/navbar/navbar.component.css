@@ -1,24 +1,108 @@
 .navbar {
-    background-color: green;
+    background-color: #2e7d32;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.navbar .brand i {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.navbar .brand h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 600;
 }
 
 .buttons ul {
     list-style: none;
     display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 10px;
-    justify-content: flex-end; /* Change this to 'flex-end' */
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.buttons ul li {
+    position: relative;
 }
 
 .buttons ul li a {
     color: white;
     text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    transition: color 0.2s ease;
 }
-a {
-    cursor: pointer;
+
+.buttons ul li a:hover {
+    color: #a5d6a7;
+}
+
+.buttons ul li a.Active {
+    color: #a5d6a7;
+}
+
+.buttons ul li a.Active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    /* background-color: #a5d6a7; */
+}
+
+/* Style for the username display */
+.username {
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-left: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.75rem 1rem;
+    }
+
+    .navbar .brand h1 {
+        font-size: 1.25rem;
+    }
+
+    .buttons ul {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .buttons ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .buttons ul li:last-child {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
 }

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
-// import { BrowserModule } from '@angular/platform-browser';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonModule} from 'primeng/button';
 
 @Component({
@@ -11,8 +9,6 @@ import { ButtonModule} from 'primeng/button';
   imports: [
     RouterOutlet, 
     NavbarComponent, 
-    // BrowserModule,
-    // BrowserAnimationsModule,
     ButtonModule
   ],
   templateUrl: './app.component.html',
